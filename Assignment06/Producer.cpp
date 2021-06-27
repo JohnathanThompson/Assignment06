@@ -5,6 +5,8 @@
 #include <iostream>
 
 using namespace std;
+
+Producer::Producer() {}
 int Producer::getNumber() {
 	return number;
 }

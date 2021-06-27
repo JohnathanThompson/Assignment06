@@ -9,6 +9,6 @@ class Producer
 	public:
 		int getNumber();
 		void createNum(std::queue <int> q, int id);
-		//Producer(string);
+		Producer();
 };
 

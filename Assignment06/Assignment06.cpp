@@ -7,17 +7,15 @@
 #include "Consumer.h"
 
 using namespace std;
-
 queue <int> q;
 
 int main()
 {
-    int tally = 0;
-    thread Prod1(&Producer::createNum, q, 1);
-    thread Prod2(&Producer::createNum, q, 2);
-    thread Con1(&Consumer::removeItem, q, 1);
-    thread Con2(&Consumer::removeItem, q, 2);
-    thread Con3(&Consumer::removeItem, q, 3);
+    thread Prod1(&Producer::createNum, Producer(), q, 1);
+    thread Prod2(&Producer::createNum, Producer(), q, 2);
+    thread Con1(&Consumer::removeItem, Consumer(), q, 1);
+    thread Con2(&Consumer::removeItem, Consumer(), q, 2);
+    thread Con3(&Consumer::removeItem, Consumer(), q, 3);
     
     Prod1.join();
     Prod2.join();
