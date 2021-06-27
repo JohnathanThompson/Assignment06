@@ -1,13 +1,12 @@
 #pragma once
 #include <queue>
+#include <mutex>
 
 class Producer
 {
 	private:
-		int number;
 
 	public:
-		int getNumber();
 		void createNum(std::queue <int> q, int id);
 		Producer();
 };

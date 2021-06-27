@@ -3,18 +3,21 @@
 #include <stdlib.h>
 #include <queue>
 #include <iostream>
+#include <mutex>
 
 using namespace std;
 
 Producer::Producer() {}
-int Producer::getNumber() {
-	return number;
-}
+
 
 void Producer::createNum(std::queue <int> q, int id) {
-	srand(time(NULL));
+	mutex m;
+	lock_guard<mutex> lock(m);
+	srand((unsigned)time(0));
 	int num = rand() % 100 + 1;
 	cout << "Producer thread " << id << " produced the int " << num << endl;
+	q.push(num);
+
 
 
 }
